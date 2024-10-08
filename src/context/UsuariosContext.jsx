@@ -32,6 +32,9 @@ const UsuariosProvider = ({ children }) => {
       setEmail('');
       setPassword('');
       setMessage('Registro exitoso! Inicia sesión.');
+      setTimeout(() => {
+        setMessage(''); 
+      }, 3000);
     } catch (error) {
       console.error('Error al registrar usuario:', error);
       setMessage('Hubo un error en el registro.');

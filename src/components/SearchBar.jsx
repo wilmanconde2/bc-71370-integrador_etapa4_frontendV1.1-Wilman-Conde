@@ -58,17 +58,6 @@ const SearchBar = () => {
         </Link>
       </div>
 
-      {/* TODO crear componente para mostrar resultado de busqueda */}
-      {busqueda && <ResultadoBusqueda productosFiltrados={productosFiltrados} />}
-      {/* {busqueda && productosFiltrados.length > 0 && (
-        <div className='resultados-busqueda'>
-          {productosFiltrados.map((producto) => (
-            <div key={producto.id}>
-              <Link to={`/producto/${producto.id}`}>{producto.nombre}</Link>
-            </div>
-          ))}
-        </div>
-      )} */}
       <div className='menu-toogle'>
         <label htmlFor='menu' className='menu-toogle__label'>
           <span className='menu-toogle__top-bread'></span>
