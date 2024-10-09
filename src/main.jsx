@@ -8,6 +8,7 @@ import { UsuariosProvider } from './context/UsuariosContext.jsx';
 const urlPROD = import.meta.env.VITE_BACKSERVER_PRODUCTS;
 const urlCART = import.meta.env.VITE_BACKSERVER_CARRITO;
 const urlREG = import.meta.env.VITE_BACKSERVER_REGISTRO;
+const urlUPL = import.meta.env.VITE_BACKSERVER_UPLOAD;
 const urlAPI = import.meta.env.VITE_API_KEY;
 
 createRoot(document.getElementById('root')).render(
@@ -27,4 +28,5 @@ export default {
   urlCART,
   urlAPI,
   urlREG,
+  urlUPL,
 };

@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import ProductosContext from '../context/ProductosContext';
+import DragDrop from '../components/DragDrop/DragDrop.jsx';
 
 const Formulario = () => {
+  const [foto, setFoto] = useState('');
+  const [srcImagen, setSrcImagen] = useState('');
   const formInit = {
     id: null,
     nombre: '',
@@ -20,29 +23,23 @@ const Formulario = () => {
 
   useEffect(() => {
     if (productoAEditar) {
-      setForm({
-        id: productoAEditar.id ?? null,
-        nombre: productoAEditar.nombre ?? '',
-        precio: productoAEditar.precio ?? '',
-        stock: productoAEditar.stock ?? '',
-        marca: productoAEditar.marca ?? '',
-        categoria: productoAEditar.categoria ?? '',
-        detalles: productoAEditar.detalles ?? '',
-        foto: productoAEditar.foto ?? '',
-      });
+      setForm(productoAEditar);
+      setSrcImagen(productoAEditar.foto);
     } else {
       setForm(formInit);
     }
-  }, [productoAEditar]);
+  }, [productoAEditar, setProductoAEditar]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       if (form.id === null) {
-        await crearProductoContext(form);
+        const productoNuevoConImagen = { ...form, ...foto };
+        await crearProductoContext(productoNuevoConImagen);
       } else {
-        await actualizarProductoContext(form);
+        const productoEditadoConImagen = { ...form, ...foto };
+        await actualizarProductoContext(productoEditadoConImagen);
       }
       handleReset();
     } catch (error) {
@@ -61,6 +58,8 @@ const Formulario = () => {
 
   const handleReset = () => {
     setForm(formInit);
+    setFoto('');
+    setSrcImagen('');
     setProductoAEditar(null);
   };
 
@@ -141,7 +140,7 @@ const Formulario = () => {
               required
             />
           </div>
-          <div className='div-foto' >
+          {/* <div className='div-foto' >
             <label htmlFor='lbl-foto'>Foto: *</label>
             <input
               type='text'
@@ -152,7 +151,8 @@ const Formulario = () => {
               placeholder='Arrastrar aquí'
               required
             />
-          </div>
+          </div> */}
+          <DragDrop setFoto={setFoto} srcImagen={srcImagen} setSrcImagen={setSrcImagen} />
 
           <input className='btn-form-alta guardar' type='submit' value={productoAEditar ? 'Actualizar' : 'Guardar'} />
           <button className='btn-form-alta limpiar' type='reset' onClick={handleReset}>
