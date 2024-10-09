@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import CarritoContext from '../context/CarritoContext';
 import ProductosContext from '../context/ProductosContext';
-import ResultadoBusqueda from './resultadoBusqueda';
 
 const SearchBar = () => {
   const { carrito } = useContext(CarritoContext);
@@ -20,13 +19,11 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log('Productos filtrados:', productosFiltrados);
     const productosFiltrados = productos.filter((producto) =>
       producto.nombre.toLowerCase().includes(busqueda.toLowerCase()),
     );
     navigate('/busqueda', { state: { productosFiltrados } });
 
-    // setProductosFiltrados(productosFiltrados);
   };
 
   return (
