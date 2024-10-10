@@ -40,7 +40,7 @@ const SearchBar = () => {
         <input
           type='text'
           className='search-bar__form-search'
-          placeholder='¿Qué estás buscando?'
+          placeholder='Me interesa...'
           value={busqueda}
           onChange={handleSearch}
         />
