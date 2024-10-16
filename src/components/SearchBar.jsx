@@ -23,7 +23,6 @@ const SearchBar = () => {
       producto.nombre.toLowerCase().includes(busqueda.toLowerCase()),
     );
     navigate('/busqueda', { state: { productosFiltrados } });
-
   };
 
   return (

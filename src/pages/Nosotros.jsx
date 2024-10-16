@@ -45,7 +45,7 @@ const Nosotros = () => {
           <img src='../img/wallpaper-nosotros.webp' className='content4__img' alt='wallpaper-nosotros' />
           <p>
             Para recibir actualizaciones sobre nuevos juguetes, reseñas y consejos de juego,&nbsp;
-            <NavLink to='#' className='link cuenta'>
+            <NavLink to='/cuenta' className='link cuenta'>
               suscríbete gratis.
             </NavLink>
           </p>
