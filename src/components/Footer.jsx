@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='footer-fixed'>{dateTime} Copyright - WC2 - willconde2@hotmail.com</div>
+      <div className='footer-fixed'>{dateTime} - WC2 - willconde2@hotmail.com</div>
     </footer>
   );
 };
