@@ -47,9 +47,18 @@
   /* -------------------------------------------------------- */
   /* PERSONALIZADO */
   /* -------------------------------------------------------- */
-  
+
   .img-top {
     text-align: center;
+
+    span {
+      display: block;
+      margin-bottom: 1rem;
+      color: orangered;
+    }
+    span:first-child {
+      margin: 0;
+    }
 
     & img {
       width: 80%;
